@@ -20,5 +20,7 @@ function begin(){
     btn2.style.display = "block";
     btn3.style.display = "block";
     btn4.style.display = "block";
-}
+} 
+
+var questions = []
 
