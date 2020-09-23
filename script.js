@@ -29,9 +29,9 @@ var answerD = document.getElementById("D")
 
 
 //  QUESTIONS
-const questions = ["Which country's capital city is named Lisbon?","Question 2","Question 3","Question 4","Question 5"]
-const answers = [["Spain","France","Portugal","Argentina",],["AnswerX","AnswerY","AnswerZ","Answer?"],["AnswerH","AnswerR","AnswerL","AnswerK"],["AnswerT","AnswerG","AnswerN","AnswerX"],["AnswerS","AnswerG","AnswerJ","AnswerP"]]
-const correctAnswers = ["Portugal","AnswerX","AnswerR","AnswerX","AnswerG",]
+var questions = ["Which country's capital city is named Lisbon?","Question 2","Question 3","Question 4","Question 5"]
+var answers = [["Spain","France","Portugal","Argentina",],["AnswerX","AnswerY","AnswerZ","Answer?"],["AnswerH","AnswerR","AnswerL","AnswerK"],["AnswerT","AnswerG","AnswerN","AnswerX"],["AnswerS","AnswerG","AnswerJ","AnswerP"]]
+var correctAnswers = ["Portugal","AnswerX","AnswerR","AnswerX","AnswerG",]
 //console.log(questions[3])
 //     
 
@@ -73,14 +73,13 @@ function startTimer() {
 var counter = 0
 
 function askQuestion(){
-    if(counter<5){
+    
     questionEl.textContent = questions[counter];
     answerA.textContent = answers[counter][0];
     answerB.textContent = answers[counter][1];
     answerC.textContent = answers[counter][2];
     answerD.textContent = answers[counter][3];
-    counter++;}
-    
+        
     
 }
 console.log(answers[counter][2])
@@ -89,37 +88,46 @@ console.log(correctAnswers[counter])
 function selectAnswerA(){
     if(answers[counter][0] == correctAnswers[counter]){
         correctIncorrect.textContent = "Correct";
+        counter++;
         askQuestion();
+
     }else{
-        correctIncorrect.textContent = "Inorrect";
+        correctIncorrect.textContent = "Incorrect";
+        counter++;
         askQuestion();
     }
 }
 function selectAnswerB(){
     if(answers[counter][1] == correctAnswers[counter]){
         correctIncorrect.textContent = "Correct";
+        counter++;
         askQuestion();
     }
     else{
-        correctIncorrect.textContent = "Inorrect";
+        correctIncorrect.textContent = "Incorrect";
+        counter++;
         askQuestion();
     }
 }
 function selectAnswerC(){
     if(answers[counter][2] == correctAnswers[counter]){
         correctIncorrect.textContent = "Correct";
+        counter++;
         askQuestion();
     }else{
-        correctIncorrect.textContent = "Inorrect";
+        correctIncorrect.textContent = "Incorrect";
+        counter++;
         askQuestion();
     }
 }
 function selectAnswerD(){
     if(answers[counter][3] == correctAnswers[counter]){
         correctIncorrect.textContent = "Correct";
+        counter++;
         askQuestion();
     }else{
-        correctIncorrect.textContent = "Inorrect";
+        correctIncorrect.textContent = "Incorrect";
+        counter++;
         askQuestion();
     }
 }
