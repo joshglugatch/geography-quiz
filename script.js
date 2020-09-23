@@ -33,7 +33,7 @@ var answerD = document.getElementById("D")
 
 //  QUESTIONS
 var questions = ["Which country's capital city is named Lisbon?","Where is the Great Pyramid of Giza located?","What is the world's largest continent?","What is the official language of the Canadian province Quebec?","What body of water separates Spain from the continent of Africa?"]
-var answers = [["Spain","France","Portugal","Argentina",],["Nigeria","Egypt","Saudi Arabia","Turkey"],["Asia","Africa","China","North America"],["Canadian","Spanish","French","German"],["Cape Cod","Magellan Pacific Ocean","Caspian Sea","Bering Strait"]]
+var answers = [["Spain","France","Portugal","Argentina",],["Nigeria","Egypt","Saudi Arabia","Turkey"],["Asia","Africa","China","North America"],["Canadian","Spanish","French","German"],["Cape Cod","Pacific Ocean","Caspian Sea","Bering Strait"]]
 var correctAnswers = ["Portugal","Egypt","Asia","French","Bering Strait",]
 //console.log(questions[3])
 //     
@@ -65,7 +65,7 @@ function askQuestion(){
     answerB.textContent = answers[counter][1];
     answerC.textContent = answers[counter][2];
     answerD.textContent = answers[counter][3];
-    }else if(counter = 5){
+    }else if(counter == 5){
         highScores()
     }
         
@@ -77,11 +77,13 @@ console.log(correctAnswers[counter])
 function selectAnswerA(){
     if(answers[counter][0] == correctAnswers[counter]){
         correctIncorrect.textContent = "Correct";
+        correctIncorrect.style.color = "green"
         counter++;
         askQuestion();
 
     }else{
         correctIncorrect.textContent = "Incorrect";
+        correctIncorrect.style.color = "red"
         counter++;
         wrongAnswer();
         askQuestion();
@@ -90,11 +92,13 @@ function selectAnswerA(){
 function selectAnswerB(){
     if(answers[counter][1] == correctAnswers[counter]){
         correctIncorrect.textContent = "Correct";
+        correctIncorrect.style.color = "green"
         counter++;
         askQuestion();
     }
     else{
         correctIncorrect.textContent = "Incorrect";
+        correctIncorrect.style.color = "red"
         counter++;
         wrongAnswer();
         askQuestion();
@@ -103,10 +107,12 @@ function selectAnswerB(){
 function selectAnswerC(){
     if(answers[counter][2] == correctAnswers[counter]){
         correctIncorrect.textContent = "Correct";
+        correctIncorrect.style.color = "green"
         counter++;
         askQuestion();
     }else{
         correctIncorrect.textContent = "Incorrect";
+        correctIncorrect.style.color = "red"
         counter++;
         wrongAnswer();
         askQuestion();
@@ -115,10 +121,12 @@ function selectAnswerC(){
 function selectAnswerD(){
     if(answers[counter][3] == correctAnswers[counter]){
         correctIncorrect.textContent = "Correct";
+        correctIncorrect.style.color = "green"
         counter++;
         askQuestion();
     }else{
         correctIncorrect.textContent = "Incorrect";
+        correctIncorrect.style.color = "red"
         counter++;
         wrongAnswer();
         askQuestion();
@@ -134,10 +142,10 @@ answerD.addEventListener("click", selectAnswerD)
 
 
 //timer function
-var secondsLeft = 45;
+var secondsLeft = 50;
 
 function wrongAnswer(){
-    secondsLeft = secondsLeft-5;
+    secondsLeft = secondsLeft-10;
 }
 
 function startTimer() {
@@ -167,14 +175,16 @@ function highScores(){
     btn3.style.display = "none";
     btn4.style.display = "none";   
 
-    
+    localStorage.setItem("score", secondsLeft);
+    scores();
 }
 
 function scores(){
     
-    var liTag = document.createElement("li");
-    liTag.textContent = secondsLeft;
-    scoreList.prependChild(liTag);
+    var pTag = document.createElement("p");
+    pTag.textContent = secondsLeft;
+    scoreList.prependChild(pTag);
+
 }
 
 
