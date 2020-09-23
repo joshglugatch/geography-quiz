@@ -5,6 +5,9 @@ startBtn.style.display = "block";
 var questionEl = document.getElementById("question");
 questionEl.style.display = "none";
 
+//score list hook 
+var scoreList = document.getElementById("score-list")
+
 //timer hook
 var timer = document.getElementById("time-left");
 
@@ -29,9 +32,9 @@ var answerD = document.getElementById("D")
 
 
 //  QUESTIONS
-var questions = ["Which country's capital city is named Lisbon?","Question 2","Question 3","Question 4","Question 5"]
-var answers = [["Spain","France","Portugal","Argentina",],["AnswerX","AnswerY","AnswerZ","Answer?"],["AnswerH","AnswerR","AnswerL","AnswerK"],["AnswerT","AnswerG","AnswerN","AnswerX"],["AnswerS","AnswerG","AnswerJ","AnswerP"]]
-var correctAnswers = ["Portugal","AnswerX","AnswerR","AnswerX","AnswerG",]
+var questions = ["Which country's capital city is named Lisbon?","Where is the Great Pyramid of Giza located?","What is the world's largest continent?","What is the official language of the Canadian province Quebec?","What body of water separates Spain from the continent of Africa?"]
+var answers = [["Spain","France","Portugal","Argentina",],["Nigeria","Egypt","Saudi Arabia","Turkey"],["Asia","Africa","China","North America"],["Canadian","Spanish","French","German"],["Cape Cod","Magellan Pacific Ocean","Caspian Sea","Bering Strait"]]
+var correctAnswers = ["Portugal","Egypt","Asia","French","Bering Strait",]
 //console.log(questions[3])
 //     
 
@@ -50,35 +53,21 @@ function begin(){
     askQuestion();
     
 } 
-//timer function
 
-var secondsLeft = 60;
-
-function startTimer() {
-  
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timer.textContent = secondsLeft;
-
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      questionEl.textContent = "Time ran out!"
-      highScores()
-    }
-
-  }, 1000);
-}
 
 
 var counter = 0
 
 function askQuestion(){
-    
+    if(counter<5){
     questionEl.textContent = questions[counter];
     answerA.textContent = answers[counter][0];
     answerB.textContent = answers[counter][1];
     answerC.textContent = answers[counter][2];
     answerD.textContent = answers[counter][3];
+    }else if(counter = 5){
+        highScores()
+    }
         
     
 }
@@ -94,6 +83,7 @@ function selectAnswerA(){
     }else{
         correctIncorrect.textContent = "Incorrect";
         counter++;
+        wrongAnswer();
         askQuestion();
     }
 }
@@ -106,6 +96,7 @@ function selectAnswerB(){
     else{
         correctIncorrect.textContent = "Incorrect";
         counter++;
+        wrongAnswer();
         askQuestion();
     }
 }
@@ -117,6 +108,7 @@ function selectAnswerC(){
     }else{
         correctIncorrect.textContent = "Incorrect";
         counter++;
+        wrongAnswer();
         askQuestion();
     }
 }
@@ -128,151 +120,64 @@ function selectAnswerD(){
     }else{
         correctIncorrect.textContent = "Incorrect";
         counter++;
+        wrongAnswer();
         askQuestion();
     }
 }
 
 
-// CALL NEXT QUESTION
+// call next question with button event listeners
 answerA.addEventListener("click", selectAnswerA)
 answerB.addEventListener("click", selectAnswerB)
 answerC.addEventListener("click", selectAnswerC)
 answerD.addEventListener("click", selectAnswerD)
 
+
+//timer function
+var secondsLeft = 45;
+
+function wrongAnswer(){
+    secondsLeft = secondsLeft-5;
+}
+
+function startTimer() {
+  
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timer.textContent = secondsLeft;
+
+    
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      questionEl.textContent = "Time ran out! Your score was 0."
+      highScores()
+    }
+    if(counter == 5){
+      clearInterval(timerInterval);
+      questionEl.textContent = "Your score was " + secondsLeft + ".";
+      highScores()
+    }
+
+  }, 1000);
+}
+
 function highScores(){
     btn1.style.display = "none";
     btn2.style.display = "none";
     btn3.style.display = "none";
-    btn4.style.display = "none";
+    btn4.style.display = "none";   
 
     
+}
+
+function scores(){
+    
+    var liTag = document.createElement("li");
+    liTag.textContent = secondsLeft;
+    scoreList.prependChild(liTag);
 }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// {
-    //          question: "Question 1",
-    //          answers: [
-    //         { text1: "other answer", correct: false },
-    //         { text2: "other answer", correct: false },
-    //         { text3: "answer 3 correct", correct: true },
-    //         { text4: "other answer", correct: false },
-    //          ]
-    //     },
-    //     {
-    //         question: "Question 2",
-    //         answers: [
-    //        { text1: "other answer", correct: false },
-    //        { text2: "answer 2 correct", correct: true },
-    //        { text3: "other answer", correct: false },
-    //        { text4: "other answer", correct: false },
-    //         ]
-    //    },
-    //     {
-    //         question: "Question 3",
-    //         answers: [
-    //        { text1: "other answer", correct: false },
-    //        { text2: "answer 2 correct", correct: true },
-    //        { text3: "other answer", correct: false },
-    //        { text4: "other answer", correct: false },
-    //         ]
-    //    },
-    //     {
-    //         question: "Question 4",
-    //         answers: [
-    //        { text1: "other answer", correct: false },
-    //        { text2: "answer 2 correct", correct: true },
-    //        { text3: "other answer", correct: false },
-    //        { text4: "other answer", correct: false },
-    //         ]
-    //    },
-    //     {
-    //         question: "Question 5",
-    //         answers: [
-    //        { text1: "other answer", correct: false },
-    //        { text2: "answer 2 correct", correct: true },
-    //        { text3: "other answer", correct: false },
-    //        { text4: "other answer", correct: false },
-    //         ]
-    //    },
-    //     {
-    //         question: "Question 6",
-    //         answers: [
-    //        { text1: "other answer", correct: false },
-    //        { text2: "answer 2 correct", correct: true },
-    //        { text3: "other answer", correct: false },
-    //        { text4: "other answer", correct: false },
-    //         ]
-    //    },
-    //     {
-    //         question: "Question 7",
-    //         answers: [
-    //        { text1: "other answer", correct: false },
-    //        { text2: "answer 2 correct", correct: true },
-    //        { text3: "other answer", correct: false },
-    //        { text4: "other answer", correct: false },
-    //         ]
-    //    },
-    //     {
-    //         question: "Question 8",
-    //         answers: [
-    //        { text1: "other answer", correct: false },
-    //        { text2: "answer 2 correct", correct: true },
-    //        { text3: "other answer", correct: false },
-    //        { text4: "other answer", correct: false },
-    //         ]
-    //    },
-    //     {
-    //         question: "Question 9",
-    //         answers: [
-    //        { text1: "other answer", correct: false },
-    //        { text2: "answer 2 correct", correct: true },
-    //        { text2: "other answer", correct: false },
-    //        { text4: "other answer", correct: false },
-    //         ]
-    //    },
-    //     {
-    //         question: "Question 10",
-    //         answers: [
-    //        { text1: "other answer", correct: false },
-    //        { text2: "answer 2 correct", correct: true },
-    //        { text3: "other answer", correct: false },
-    //        { text4: "other answer", correct: false },
-    //         ]
-    //    },
-    // ];

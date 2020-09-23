@@ -13,7 +13,7 @@
   <body>
 
     <main class="container">
-        <div class="card customCenter">
+        <div id="positioncard" class="card customCenter">
             <div class="card-header text-center">
                 Do You Know Geography?
             </div>
@@ -38,10 +38,11 @@
                     <button type="button" id="D" class="btn btn-lg btn-light answerButton"></button>
                   </div>
               </div>
+              <div class="row"><ul class="score-list"></ul></div>
             </div>
             <div class="row card-footer footerstyle">
-                <div class="col-sm-6"><span id="correct-incorrect"></span></div>
-                <div class="col-sm-6">Time Left : <span id="time-left"></span></div>
+                <div class="col-sm-6 buttonCenter"><span id="correct-incorrect"></span></div>
+                <div id="timersize" class="col-sm-6 buttonCenter">Time Left : <span id="time-left">45</span></div>
             </div>
           </div>
     </main>
