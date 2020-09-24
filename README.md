@@ -37,12 +37,12 @@ To check if the user clicked the correct answer, the correct answers array is co
 
 
 # Deployed Link:
-https://joshglugatch.github.io/password-generator/
+https://joshglugatch.github.io/geography-quiz/
 
 <br>
 
 # Repository Link:
-https://github.com/joshglugatch/password-generator
+https://github.com/joshglugatch/geography-quiz
 
 <br>
 
