@@ -191,11 +191,10 @@ var scoreArray = [];
 renderScores();
 
 function renderScores() {
-  // Clear Score List element and update todoCountSpan
   scoreList.innerHTML = "";
   
 
-  // Render a new li for each todo
+  // Render a new li for each score
   for (var i = 0; i < scoreArray.length; i++) {
     var xscore = scoreArray[i];
 
@@ -211,17 +210,12 @@ submitButton.addEventListener("click", function(event){
     
   var name = inputName.value.trim();
   
-
-  // Return from function early if submitted todoText is blank
   if (name === "") {
     return;
   }
-
-  // Add new todoText to todos array, clear the input
   scoreArray.push(name + " " + secondsLeft);
   inputName.value = "";
 
-  // Re-render the list
   renderScores();
 });
 
@@ -230,26 +224,9 @@ resetButton.addEventListener("click", function(){
     scoreCard.style.display = "none";
     secondsLeft = 50
     counter = 0
-    correctIncorrect.value = ""
+    correctIncorrect.innerHTML = ""
     begin();
     
 })
 
 
-
-
-
-
-    
-    
-
-   
-    
-
-
-// var scoreCard = document.getElementById("scorecard");
-// scorecard.style.display = "none";
-// var yourScore = document.getElementById("your-score");
-// var inputName = document.getElementById("input-name");
-// var submitButton = document.querySelector(".submit-button");
-// var scoreList = document.getElementById("scoreList");

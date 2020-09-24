@@ -7,7 +7,7 @@ There are only five questions so I hope you get them right!
   
 <br>
 
-![exampleGif](https://github.com/joshglugatch/password-generator/blob/master/Assets/generator.gif?raw=true)
+![exampleGif](https://github.com/joshglugatch/geography-quiz/blob/master/images/geoquiz.gif?raw=true)
 
 <br>
 
@@ -17,24 +17,24 @@ There are only five questions so I hope you get them right!
 * CSS
 
 ## Features
-There are 3 main parts to the quiz. It begins with a "begin" page with a button, and then moves onto the actual quiz content. Finally it reaches the "High Scores" page where the user can keep log of their scores. 
+There are 3 main parts to the quiz. It starts with a "begin" page with a button, and then moves onto the actual quiz content. Finally it reaches the "High Scores" page where the user can keep log of their scores and try the quiz again. 
 
 ## Code Example
-Here is the code that allows the user to choose which character types they would like in their generated password. If they choose a type of character, it adds those values to a new string to be randomly chosen from. The critChoice variable ensures that one of each character type chosen by the user is added to the final password by placing a character type in the beginning of the string.
+Questions, answers, and correct answers were placed into arrays
 
 <br>  
 
-![criteria](https://github.com/joshglugatch/password-generator/blob/master/Assets/criteriascreenshotNEW.png?raw=true)
+![arrays image](https://github.com/joshglugatch/geography-quiz/blob/master/images/arrays.png?raw=true)
 
 <br>
-Added a string shuffler to my final password to prevent the user criteria choices from being the first four characters of the password string.
+To check if the user clicked the correct answer, the correct answers array is compared to the value of the button that was chosen. Correct answers will prompt a green text that says "Correct" and incorrect answers will prompt a red text that says "Incorrect".
+<br>
 <br>
 
-![shuffler](https://github.com/joshglugatch/password-generator/blob/master/Assets/shuffle.png?raw=true)
-
-This line of code was found on Stack Overflow.
+![correct asnwer](https://github.com/joshglugatch/geography-quiz/blob/master/images/checkanswer.png?raw=true)
 
 <br>
+
 
 # Deployed Link:
 https://joshglugatch.github.io/password-generator/
@@ -53,6 +53,4 @@ Josh Glugatch
 <br>
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/joshua-glugatch)
 
-### Credits:
-Thanks to Joel Mellon on StackOverflow for the string shuffle code. 
-Check out the [link to shuffle code.](https://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript)
+
