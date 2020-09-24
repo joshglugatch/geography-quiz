@@ -7,7 +7,7 @@ There are only five questions so I hope you get them right!
   
 <br>
 
-![exampleGif](https://github.com/joshglugatch/geography-quiz/blob/master/images/geoquiz.gif?raw=true)
+![exampleGif](https://github.com/joshglugatch/geography-quiz/blob/master/images/newgeoquiz.gif?raw=true)
 
 <br>
 
