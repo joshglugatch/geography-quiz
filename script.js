@@ -1,4 +1,6 @@
 //main hooks
+var mainCard = document.getElementById("main-card")
+
 var startBtn = document.getElementById("startButton");
 startBtn.style.display = "block";
 
@@ -6,7 +8,12 @@ var questionEl = document.getElementById("question");
 questionEl.style.display = "none";
 
 //score list hook 
-var scoreList = document.getElementById("score-list")
+var scoreCard = document.getElementById("scorecard");
+scorecard.style.display = "none";
+var yourScore = document.getElementById("your-score");
+var inputName = document.getElementById("input-name");
+var submitButton = document.querySelector(".submit-button");
+var scoreList = document.getElementById("scoreList");
 
 //timer hook
 var timer = document.getElementById("time-left");
@@ -71,8 +78,7 @@ function askQuestion(){
         
     
 }
-console.log(answers[counter][2])
-console.log(correctAnswers[counter])
+
 
 function selectAnswerA(){
     if(answers[counter][0] == correctAnswers[counter]){
@@ -155,39 +161,46 @@ function startTimer() {
     timer.textContent = secondsLeft;
 
     
-    if(secondsLeft === 0) {
+    if(secondsLeft === 0 || secondsLeft < 0) {
       clearInterval(timerInterval);
-      questionEl.textContent = "Time ran out! Your score was 0."
+      secondsLeft == 0
+      yourScore.textContent = "Time ran out! Your score was 0."
+      console.log(secondsLeft)
       highScores()
     }
     if(counter == 5){
       clearInterval(timerInterval);
-      questionEl.textContent = "Your score was " + secondsLeft + ".";
+      yourScore.textContent = "Your score was " + secondsLeft + ".";
       highScores()
     }
 
   }, 1000);
 }
 
+
+
+
+
 function highScores(){
-    btn1.style.display = "none";
-    btn2.style.display = "none";
-    btn3.style.display = "none";
-    btn4.style.display = "none";   
+    scoreCard.style.display = "block";
 
-    localStorage.setItem("score", secondsLeft);
-    scores();
-}
 
-function scores(){
     
-    var pTag = document.createElement("p");
-    pTag.textContent = secondsLeft;
-    scoreList.prependChild(pTag);
-
+    
+    
+    
 }
 
 
+submitButton.addEventListener("click", function(event){
+    event.preventDefault();
+    localStorage.setItem(inputName.value, JSON.stringify(secondsLeft));
 
+    // var li = document.createElement("li");
+    // li.textContent = scoreValue;
+    // li.setAttribute("data-index", i);
+})
 
-
+//inputName = name input
+//submitButton = submit button
+// var scoreList = document.getElementById("scoreList");

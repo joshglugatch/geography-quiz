@@ -38,4 +38,7 @@ body{
     width: 100%;
     
 }
-
+#your-score{
+    font-size: 40px;
+    text-align: center;
+}
