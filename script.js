@@ -14,6 +14,7 @@ var yourScore = document.getElementById("your-score");
 var inputName = document.getElementById("input-name");
 var submitButton = document.querySelector(".submit-button");
 var scoreList = document.getElementById("scoreList");
+var clearButton = document.getElementById("clear-button")
 
 //timer hook
 var timer = document.getElementById("time-left");
@@ -187,7 +188,6 @@ function highScores(){
 
 var scoreArray = [];
 
-
 renderScores();
 
 function renderScores() {
@@ -227,6 +227,12 @@ resetButton.addEventListener("click", function(){
     correctIncorrect.innerHTML = ""
     begin();
     
-})
+});
+
+//clear high scores
+clearButton.addEventListener("click", function(){
+    scoreList.innerHTML = "";
+    scoreArray = [];
+    });
 
 
