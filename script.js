@@ -191,16 +191,62 @@ function highScores(){
     
 }
 
+var scoreArray = [];
 
+
+renderScores();
+
+function renderScores() {
+  // Clear Score List element and update todoCountSpan
+  scoreList.innerHTML = "";
+  
+
+  // Render a new li for each todo
+  for (var i = 0; i < scoreArray.length; i++) {
+    var xscore = scoreArray[i];
+
+    var li = document.createElement("li");
+    li.textContent = xscore;
+    scoreList.appendChild(li);
+  }
+}
+
+// When form is submitted...
 submitButton.addEventListener("click", function(event){
     event.preventDefault();
-    localStorage.setItem(inputName.value, JSON.stringify(secondsLeft));
+    
+  var name = inputName.value.trim();
+  
 
-    // var li = document.createElement("li");
-    // li.textContent = scoreValue;
-    // li.setAttribute("data-index", i);
-})
+  // Return from function early if submitted todoText is blank
+  if (name === "") {
+    return;
+  }
 
-//inputName = name input
-//submitButton = submit button
+  // Add new todoText to todos array, clear the input
+  scoreArray.push(name + " " + secondsLeft);
+  inputName.value = "";
+
+  // Re-render the list
+  renderScores();
+});
+
+
+
+
+
+
+
+    
+    
+
+   
+    
+
+
+// var scoreCard = document.getElementById("scorecard");
+// scorecard.style.display = "none";
+// var yourScore = document.getElementById("your-score");
+// var inputName = document.getElementById("input-name");
+// var submitButton = document.querySelector(".submit-button");
 // var scoreList = document.getElementById("scoreList");
