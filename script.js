@@ -41,8 +41,8 @@ var answerD = document.getElementById("D")
 
 //  QUESTIONS
 var questions = ["Which country's capital city is named Lisbon?","Where is the Great Pyramid of Giza located?","What is the world's largest continent?","What is the official language of the Canadian province Quebec?","What body of water separates Spain from the continent of Africa?"]
-var answers = [["Spain","France","Portugal","Argentina",],["Nigeria","Egypt","Saudi Arabia","Turkey"],["Asia","Africa","China","North America"],["Canadian","Spanish","French","German"],["Cape Cod","Pacific Ocean","Caspian Sea","Bering Strait"]]
-var correctAnswers = ["Portugal","Egypt","Asia","French","Bering Strait",]
+var answers = [["Spain","France","Portugal","Argentina",],["Nigeria","Egypt","Saudi Arabia","Turkey"],["Asia","Africa","China","North America"],["Canadian","Spanish","French","German"],["Cape Cod","Pacific Ocean","Caspian Sea","Strait of Gibraltar"]]
+var correctAnswers = ["Portugal","Egypt","Asia","French","Strait of Gibraltar",]
 //console.log(questions[3])
 //     
 
