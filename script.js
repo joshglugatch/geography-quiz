@@ -161,19 +161,18 @@ function startTimer() {
     secondsLeft--;
     timer.textContent = secondsLeft;
 
-    
-    if(secondsLeft === 0 || secondsLeft < 0) {
-      clearInterval(timerInterval);
-      secondsLeft == 0
-      yourScore.textContent = "Time ran out! Your score was 0."
-      console.log(secondsLeft)
-      highScores()
-    }
     if(counter == 5){
-      clearInterval(timerInterval);
-      yourScore.textContent = "Your score was " + secondsLeft + ".";
+        clearInterval(timerInterval);
+        yourScore.textContent = "Your score was " + secondsLeft + ".";
+        highScores()
+      }
+    if(secondsLeft === 0 || secondsLeft < 0) {
+        yourScore.textContent = "Time ran out! Your score was 0."
+        clearInterval(timerInterval);
+      secondsLeft.innerHTML = 0
       highScores()
     }
+    
 
   }, 1000);
 }
@@ -222,9 +221,9 @@ submitButton.addEventListener("click", function(event){
 var resetButton = document.getElementById("reset-button")
 resetButton.addEventListener("click", function(){
     scoreCard.style.display = "none";
-    secondsLeft = 50
-    counter = 0
-    correctIncorrect.innerHTML = ""
+    secondsLeft = 50;
+    counter = 0;
+    correctIncorrect.innerHTML = "";
     begin();
     
 });
