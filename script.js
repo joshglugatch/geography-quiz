@@ -182,13 +182,7 @@ function startTimer() {
 
 
 function highScores(){
-    scoreCard.style.display = "block";
-
-
-    
-    
-    
-    
+    scoreCard.style.display = "block";         
 }
 
 var scoreArray = [];
@@ -231,6 +225,15 @@ submitButton.addEventListener("click", function(event){
   renderScores();
 });
 
+var resetButton = document.getElementById("reset-button")
+resetButton.addEventListener("click", function(){
+    scoreCard.style.display = "none";
+    secondsLeft = 50
+    counter = 0
+    correctIncorrect.value = ""
+    begin();
+    
+})
 
 
 
